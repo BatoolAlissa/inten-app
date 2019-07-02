@@ -1,0 +1,134 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
+
+.App-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Winfooz Logo */
+header {
+  width: 119px;
+  height: 34px;
+  object-fit: contain;
+  margin: 43px 0px 40px 0px;
+}
+
+/* Login Section  */
+/* Login Box */
+.login-box {
+  width: 770px;
+  height: 349px;
+  border: solid 1px #e0e0e0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Box header */
+.box-header p {
+  width: 220px;
+  height: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 0.73;
+  color: #1c1c1c;
+  margin: 49.2px 0 39.8px 0;
+}
+
+/* Login Area */
+/* Email & Password Inputs */
+
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Email Section */
+.email {
+  width: 505px;
+  height: 62px;
+  margin-bottom: 15px;
+}
+
+.email label {
+  width: 41px;
+  height: 21px;
+  font-size: 16px;
+  line-height: 1.31;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.email input {
+  width: 505px;
+  height: 37px;
+  border-radius: 4px;
+  border: solid 1px #bdbdbd;
+  background-color: #ffffff;
+}
+
+.email input::placeholder {
+  width: 170px;
+  height: 21px;
+  font-size: 16px;
+  line-height: 1.31;
+  margin: 7.5px 0 15px 8.5px;
+}
+
+/* Password Section */
+
+.password label {
+  width: 72px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.31;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.password input {
+  width: 506px;
+  height: 37px;
+  border-radius: 4px;
+  border: solid 1px #bdbdbd;
+  background-color: #ffffff;
+}
+
+/* Show/Hide Icon */
+.password img {
+  width: 24px;
+  height: 23px;
+  cursor: pointer;
+}
+
+/* Ignition Button */
+.btn {
+  width: 161px;
+  height: 41px;
+  border-radius: 23px;
+  background-color: #f6ac34;
+  text-align: center;
+  padding: 10px 45px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: #ffffff;
+  width: 71px;
+  height: 21px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
