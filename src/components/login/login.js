@@ -12,6 +12,11 @@ class Login extends Component {
       passwrod: ""
     };
   }
+
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div className="App-login">
@@ -25,14 +30,16 @@ class Login extends Component {
           </div>
 
           <div>
-            <form action="">
+            <form onSubmit={this.handleSubmit} noValidate>
               <div className="email">
                 <label htmlFor="email">Email</label>
                 <input
                   placeholder="Email address"
                   type="email"
                   name="email"
+                  required=""
                   noValidate
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="password">
@@ -41,14 +48,18 @@ class Login extends Component {
                   placeholder="Password"
                   type="password"
                   name="password"
+                  required=""
                   noValidate
+                  onChange={this.handleChange}
                 />
                 <img src={hidePass} alt="ShowPassword" />
               </div>
             </form>
           </div>
           <div className="btn">
-            <a href="#">IGNITION</a>
+            <a href="#" type="submit">
+              IGNITION
+            </a>
           </div>
         </section>
       </div>

@@ -78,7 +78,8 @@ header {
   background-color: #ffffff;
 }
 
-.email input::placeholder {
+.email input::placeholder,
+.password input::placeholder {
   width: 170px;
   height: 21px;
   font-size: 16px;
