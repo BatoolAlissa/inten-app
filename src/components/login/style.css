@@ -1,6 +1,6 @@
 body {
   background-color: #f5f5f5;
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -48,6 +48,12 @@ header {
 /* Login Area */
 /* Email & Password Inputs */
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .email,
 .password {
   display: flex;
@@ -78,8 +84,17 @@ header {
   background-color: #ffffff;
 }
 
+input[type="email"],
+input[type="password"] {
+  padding: 7.5px 0px 8.5px 15px;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.31;
+  color: #1c1c1c;
+}
+
 .email input::placeholder,
-.password input::placeholder {
+.passwordContainer input::placeholder {
   width: 170px;
   height: 21px;
   font-size: 16px;
@@ -89,17 +104,21 @@ header {
 
 /* Password Section */
 
+input[type="password"] {
+  padding: 16px 0px 15px 15px;
+  font-size: 16px;
+}
+
 .password label {
   width: 72px;
   height: 20px;
-  font-family: Roboto;
   font-size: 16px;
   line-height: 1.31;
   color: #333333;
   margin-bottom: 4px;
 }
 
-.password input {
+.passwordContainer input {
   width: 506px;
   height: 37px;
   border-radius: 4px;
@@ -108,28 +127,30 @@ header {
 }
 
 /* Show/Hide Icon */
-.password img {
+.passwordContainer .icon {
   width: 24px;
   height: 23px;
   cursor: pointer;
 }
 
 /* Ignition Button */
+
 .btn {
   width: 161px;
   height: 41px;
-  border-radius: 23px;
-  background-color: #f6ac34;
-  text-align: center;
-  padding: 10px 45px;
+  margin-top: 15.2px;
 }
 
-.btn a {
-  text-decoration: none;
+button {
   color: #ffffff;
-  width: 71px;
-  height: 21px;
+  background-color: #f6ac34;
   font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
+  border-radius: 23px;
+  border-style: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: auto;
+  border-style: solid;
 }

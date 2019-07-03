@@ -30,36 +30,44 @@ class Login extends Component {
           </div>
 
           <div>
-            <form onSubmit={this.handleSubmit} noValidate>
-              <div className="email">
-                <label htmlFor="email">Email</label>
-                <input
-                  placeholder="Email address"
-                  type="email"
-                  name="email"
-                  required=""
-                  noValidate
-                  onChange={this.handleChange}
-                />
+            <form>
+              <div>
+                <div className="email">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    placeholder="Email address"
+                    type="email"
+                    name="email"
+                    required=""
+                    noValidate
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="password">
+                  <label htmlFor="password">Password</label>
+
+                  <div className="passwordContainer">
+                    <input
+                      placeholder="Password"
+                      type="password"
+                      name="password"
+                      required=""
+                      noValidate
+                      onChange={this.handleChange}
+                    />
+                    {/* <i className="fas fa-eye-slash" /> */}
+                    <span className="icon">
+                      <img src={hidePass} alt="ShowPassword" />
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="password">
-                <label htmlFor="password">Password</label>
-                <input
-                  placeholder="Password"
-                  type="password"
-                  name="password"
-                  required=""
-                  noValidate
-                  onChange={this.handleChange}
-                />
-                <img src={hidePass} alt="ShowPassword" />
+              <div className="btn">
+                <button type="submit" className="btn">
+                  IGNITION
+                </button>
               </div>
             </form>
-          </div>
-          <div className="btn">
-            <a href="#" type="submit">
-              IGNITION
-            </a>
           </div>
         </section>
       </div>
