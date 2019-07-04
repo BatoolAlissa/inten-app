@@ -85,7 +85,8 @@ form {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   padding: 7.5px 0px 8.5px 15px;
   font-family: Roboto;
   font-size: 16px;
@@ -104,7 +105,8 @@ input[type="password"] {
 
 /* Password Section */
 
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   padding: 16px 0px 15px 15px;
   font-size: 16px;
 }
@@ -118,6 +120,10 @@ input[type="password"] {
   margin-bottom: 4px;
 }
 
+.passwordContainer {
+  margin: 0 auto;
+  position: relative;
+}
 .passwordContainer input {
   width: 506px;
   height: 37px;
@@ -131,6 +137,11 @@ input[type="password"] {
   width: 24px;
   height: 23px;
   cursor: pointer;
+  float: right;
+  margin: 7px 0px 8px -30px;
+  position: absolute;
+
+  z-index: 2;
 }
 
 /* Ignition Button */
