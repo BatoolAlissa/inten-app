@@ -11,21 +11,38 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
+      formControls: {
+        email: {
+          value: ""
+        },
+        password: {
+          value: ""
+        }
+      },
       hidden: true
     };
   }
-
-  handlePasswordChange = e => {
-    this.setState({ password: e.target.value });
-  };
 
   toggleShow = () => {
     this.setState({ hidden: !this.state.hidden });
   };
 
+  changeHandler = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      formControls: {
+        ...this.state.formControls,
+        [name]: {
+          ...this.state.formControls[name],
+          value
+        }
+      }
+    });
+  };
+
   render() {
+    console.log(this.state.formControls.email);
     return (
       <div className="App-login">
         <header>
@@ -47,6 +64,8 @@ class Login extends Component {
                     type="email"
                     name="email"
                     required
+                    value={this.state.formControls.email.value}
+                    onChange={this.changeHandler}
                   />
                 </div>
                 <div>
@@ -57,11 +76,10 @@ class Login extends Component {
                         placeholder="Password"
                         type={this.state.hidden ? "password" : "text"}
                         name="password"
-                        value={this.state.password}
-                        onChange={this.handlePasswordChange}
                         required
+                        value={this.state.formControls.password.value}
+                        onChange={this.changeHandler}
                       />
-                      {/* <i className="fas fa-eye-slash" /> */}
                       <span className="icon">
                         <img
                           src={hidePass}
