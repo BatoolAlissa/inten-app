@@ -37,9 +37,14 @@ class Login extends Component {
     };
   }
 
-  toggleShow = () => {
-    this.setState({ hidden: !this.state.formControls.password.hidden });
-    console.log(this.state.formControls.password.hidden, "parent");
+  toggleshow = () => {
+    console.log(
+      "!this.state.formControls.password.hidden ",
+      !this.state.formControls.password.hidden
+    );
+    let formControls = this.state.formControls;
+    formControls.password.hidden = !formControls.password.hidden;
+    this.setState({ formControls });
   };
 
   changeHandler = event => {
@@ -81,7 +86,7 @@ class Login extends Component {
   };
 
   render() {
-    console.dir(this.state.formControls);
+    // console.dir(this.state.formControls);
 
     // console.log(this.state.formControls.email.valid);
     // console.log(this.state.formControls.password.valid);
@@ -124,7 +129,7 @@ class Login extends Component {
                         value={this.state.formControls.password.value}
                         onChange={this.changeHandler}
                         hidden={this.state.formControls.password.hidden}
-                        toggleShow={this.toggleShow}
+                        toggleshow={this.toggleshow}
                       />
                     </div>
                   </div>

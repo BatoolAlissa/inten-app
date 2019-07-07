@@ -9,6 +9,8 @@ const PasswordInput = props => {
     passwordInputStyle = " password passwordContainer error";
   }
 
+  console.log(props.hidden, "child");
+
   return (
     <div className={passwordInputStyle}>
       <input
@@ -21,7 +23,7 @@ const PasswordInput = props => {
           src={hidePass}
           alt="ShowPassword"
           required
-          onClick={props.toggleShow}
+          onClick={props.toggleshow}
         />
       </span>
     </div>
