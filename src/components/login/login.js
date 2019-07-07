@@ -1,48 +1,90 @@
 import React, { Component } from "react";
-import "./style.css";
 import header from "./header.svg";
-import hidePass from "./hidePass.svg";
-
-// const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-// const PasswordRegex = RegExp(/^[a-zA-Z0-9]*$/);
+import EmailInput from "./EmailInput";
+import PasswordInput from "./PasswordInput";
+import validate from "./Validate";
+import "./Style.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      formIsValid: false,
+
       formControls: {
         email: {
-          value: ""
+          value: "",
+          placeholder: "Email address",
+          valid: false,
+          touched: false,
+          validationRules: {
+            isEmail: true
+          }
         },
         password: {
-          value: ""
+          value: "",
+          placeholder: "Password",
+          valid: false,
+          touched: false,
+          validationRules: {
+            minLength: 8,
+            isPassword: true
+          },
+          hidden: true
         }
-      },
-      hidden: true
+      }
     };
   }
 
   toggleShow = () => {
-    this.setState({ hidden: !this.state.hidden });
+    this.setState({ hidden: !this.state.formControls.password.hidden });
+    console.log(this.state.formControls.password.hidden, "parent");
   };
 
-  changeHandler = e => {
-    const name = e.target.name;
-    const value = e.target.value;
+  changeHandler = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    const updatedControls = {
+      ...this.state.formControls
+    };
+    const updatedFormElement = {
+      ...updatedControls[name]
+    };
+
+    updatedFormElement.value = value;
+    updatedFormElement.touched = true;
+    updatedFormElement.valid = validate(
+      value,
+      updatedFormElement.validationRules
+    );
+
+    updatedControls[name] = updatedFormElement;
+
+    let formIsValid = true;
+    for (let inputIdentifier in updatedControls) {
+      formIsValid = updatedControls[inputIdentifier].valid && formIsValid;
+    }
+
     this.setState({
-      formControls: {
-        ...this.state.formControls,
-        [name]: {
-          ...this.state.formControls[name],
-          value
-        }
-      }
+      formControls: updatedControls,
+      formIsValid: formIsValid
     });
   };
 
+  formSubmitHandler = () => {
+    const formData = {};
+    for (let formElementId in this.state.formControls) {
+      formData[formElementId] = this.state.formControls[formElementId].value;
+    }
+  };
+
   render() {
-    console.log(this.state.formControls.email);
+    console.dir(this.state.formControls);
+
+    // console.log(this.state.formControls.email.valid);
+    // console.log(this.state.formControls.password.valid);
     return (
       <div className="App-login">
         <header>
@@ -55,15 +97,15 @@ class Login extends Component {
           </div>
 
           <div>
-            <form className="demoForm">
+            <form>
               <div>
                 <div className="email">
                   <label htmlFor="email">Email</label>
-                  <input
-                    placeholder="Email address"
-                    type="email"
+                  <EmailInput
                     name="email"
-                    required
+                    placeholder={this.state.formControls.email.placeholder}
+                    touched={this.state.formControls.email.touched}
+                    valid={this.state.formControls.email.valid}
                     value={this.state.formControls.email.value}
                     onChange={this.changeHandler}
                   />
@@ -72,32 +114,31 @@ class Login extends Component {
                   <div className="password">
                     <label htmlFor="password">Password</label>
                     <div className="passwordContainer">
-                      <input
-                        placeholder="Password"
-                        type={this.state.hidden ? "password" : "text"}
+                      <PasswordInput
                         name="password"
-                        required
+                        placeholder={
+                          this.state.formControls.password.placeholder
+                        }
+                        touched={this.state.formControls.password.touched}
+                        valid={this.state.formControls.password.valid}
                         value={this.state.formControls.password.value}
                         onChange={this.changeHandler}
+                        hidden={this.state.formControls.password.hidden}
+                        toggleShow={this.toggleShow}
                       />
-                      <span className="icon">
-                        <img
-                          src={hidePass}
-                          alt="ShowPassword"
-                          onClick={this.toggleShow}
-                        />
-                      </span>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div className="btn">
                 <button
                   type="submit"
                   className="btn"
-                  // disable={}
+                  onClick={this.formSubmitHandler}
+                  // disabled property as long as the formControls is not valid.
+                  disabled={!this.state.formIsValid}
                 >
-                  {" "}
                   IGNITION
                 </button>
               </div>
