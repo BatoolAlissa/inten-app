@@ -26,7 +26,7 @@ header {
 /* Login Box */
 .login-box {
   width: 770px;
-  height: 349px;
+  height: 349px; /*349px*/
   border: solid 1px #e0e0e0;
   background-color: #ffffff;
   display: flex;
@@ -52,6 +52,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .email,
@@ -82,13 +83,6 @@ form {
   border: 1px solid #bdbdbd;
 }
 
-/* ERROR STYLING */
-
-.error {
-  border: 1px solid red;
-  border-radius: 4px;
-}
-
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -108,6 +102,19 @@ input[type="text"] {
   margin: 7.5px 0 15px 8.5px;
 }
 
+/* ERROR BORDER STYLING */
+.error input,
+.PasswordError {
+  border: 1px solid #f1545a;
+  border-radius: 4px;
+}
+
+/*ERROR MSGS IF INPUTS ARE INVALID*/
+.errorMsg {
+  color: #f1545a;
+  font-size: 14px;
+}
+
 /* Password Section */
 
 input[type="password"],
@@ -125,10 +132,10 @@ input[type="text"] {
   margin-bottom: 4px;
 }
 
-.passwordContainer {
+/* .passwordContainer {
   margin: 0 auto;
   position: relative;
-}
+} */
 .passwordContainer input {
   width: 506px;
   height: 37px;
@@ -145,8 +152,7 @@ input[type="text"] {
   float: right;
   margin: 7px 0px 8px 465px;
   position: absolute;
-
-  z-index: 2;
+  z-index: 1;
 }
 
 /* Ignition Button */
@@ -154,7 +160,6 @@ input[type="text"] {
 .btn {
   width: 161px;
   height: 41px;
-  margin-top: 15.2px;
 }
 
 button {
@@ -164,6 +169,7 @@ button {
   border-radius: 23px;
   border-style: none;
   cursor: pointer;
+  margin-top: 15.2px;
 }
 
 button:focus {

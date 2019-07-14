@@ -86,8 +86,7 @@ class Login extends Component {
   };
 
   render() {
-    // console.dir(this.state.formControls);
-
+    // console.log(this.state.formControls);
     // console.log(this.state.formControls.email.valid);
     // console.log(this.state.formControls.password.valid);
     return (
@@ -104,39 +103,28 @@ class Login extends Component {
           <div>
             <form>
               <div>
-                <div className="email">
-                  <label htmlFor="email">Email</label>
-                  <EmailInput
-                    name="email"
-                    placeholder={this.state.formControls.email.placeholder}
-                    touched={this.state.formControls.email.touched}
-                    valid={this.state.formControls.email.valid}
-                    value={this.state.formControls.email.value}
+                <EmailInput
+                  name="email"
+                  placeholder={this.state.formControls.email.placeholder}
+                  touched={this.state.formControls.email.touched}
+                  valid={this.state.formControls.email.valid}
+                  value={this.state.formControls.email.value}
+                  onChange={this.changeHandler}
+                />
+                <div>
+                  <PasswordInput
+                    name="password"
+                    placeholder={this.state.formControls.password.placeholder}
+                    touched={this.state.formControls.password.touched}
+                    valid={this.state.formControls.password.valid}
+                    value={this.state.formControls.password.value}
                     onChange={this.changeHandler}
+                    hidden={this.state.formControls.password.hidden}
+                    toggleshow={this.toggleshow}
                   />
                 </div>
-                <div>
-                  <div className="password">
-                    <label htmlFor="password">Password</label>
-                    <div className="passwordContainer">
-                      <PasswordInput
-                        name="password"
-                        placeholder={
-                          this.state.formControls.password.placeholder
-                        }
-                        touched={this.state.formControls.password.touched}
-                        valid={this.state.formControls.password.valid}
-                        value={this.state.formControls.password.value}
-                        onChange={this.changeHandler}
-                        hidden={this.state.formControls.password.hidden}
-                        toggleshow={this.toggleshow}
-                      />
-                    </div>
-                  </div>
-                </div>
               </div>
-
-              <div className="btn">
+              <div>
                 <button
                   type="submit"
                   className="btn"
